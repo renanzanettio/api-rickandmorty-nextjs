@@ -11,15 +11,21 @@ export default function Home() {
       .then((res) => res.json()) //recebe a resposta da API e converte para JSON
       .then((data) => { 
         setCharacters(data.results); //recebe os dados e usa setCharacters para atualizar
-        setTotalPaginas(data.info.setTotalPaginas); //recebe os dados de total de paginas para que possa ser colocado nas paginas lá de baixo (teste)
+        setTotalPaginas(data.info.pages); //recebe os dados de total de paginas para que possa ser colocado nas paginas lá de baixo (teste)
       });
   }, [paginaAtual]);
+
+  let botoes = [];
+  for(let i = 1; i <= totalPaginas; i++){
+    botoes.push(<input key={i} className="button-page" type="button" value={i} onClick={() => setPaginaAtual(i)}/>);
+  }
 
   //Personagem filtrado = obj + filtro(faz uma array só com os elementos que tem o que está escrito na pesquisa), no caso, somente os que tem o mesmo nome no char.name e na pesquisa
   const personagemFiltrado = characters.filter((char) => char.name.toLowerCase().includes(pesquisa.toLowerCase()));
 
   
   function paginas(){
+    console.log(totalPaginas);
     for(let i = 1; i < totalPaginas; i++){
       document.write("<input className='button-page' type='button' value='"+i+"' onClick={() => {setPaginaAtual("+1+");console.log('page="+i+"')}}/>");
       console.log(i);
@@ -39,10 +45,7 @@ export default function Home() {
             </div>
           ))}
           <div className="linha-pages">
-            Páginas 
-            <input className="button-page" type="button" value="1" onClick={() => {setPaginaAtual(1);console.log("page=1")}}/>
-            <input className="button-page" type="button" value="2" onClick={() => {setPaginaAtual(2);console.log("page=2")}}/>
-            <input className="button-page" type="button" value="3" onClick={() => {setPaginaAtual(3);console.log("page=3")}}/>
+            {botoes}
             {/* preciso automatizar as páginas que seram exibidas, já tenho o total de páginas, só preciso saber como usar for ou alguma estrutura de repetição dentro do return */}
           </div>
         </div>
