@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+
+}
+
+.grid-chars{
+  padding: 25px;
+  width: 80vw;
+  background-color: #fff;
+  color: #000;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  row-gap: 20px;
+  flex-wrap: wrap;
+}
+
+.container-char{
+  border-radius: 30px;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.icone-char{
+  min-width: 300px;
+}
+
+.text-char{
+  font-size: 24px;
+  font-weight: 500;
+  transform: translateY(-100%);
+}
+
+.linha-pesquisar{
+  position: relative;
+  width: 100%;
+}
+
+.pesquisar-input{
+  border: #000 solid 1px;
+  border-radius: 8px;
+  padding: 10;
+}
+
+.linha-pages{
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.button-page{
+  background-color: #c1c1c1;
+  padding: 7px;
+  cursor: pointer;
+}
