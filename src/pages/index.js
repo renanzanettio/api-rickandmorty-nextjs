@@ -34,14 +34,15 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Personagens de Rick and Morty</h1>
+      <h1 className="text-center text-2xl mt-5">Personagens de Rick and Morty</h1>
       {characters.length === 0 ? (<p>Carregando...</p>) : ( //se não tiver nada no objeto ele vai aparecer esse label
         <div className="grid-chars">
-          <div className="linha-pesquisar"><input className="pesquisar-input" placeholder="Pesquisar" type="text" value={pesquisa} onChange={(e) => setPesquisa(e.target.value)}></input></div>
+          <div className="linha-pesquisar"><label>Nome:</label><input className="pesquisar-input" placeholder="Pesquisar" type="text" value={pesquisa} onChange={(e) => setPesquisa(e.target.value)}></input></div>
           {personagemFiltrado.map((char) => ( //funciona como um forEach, mas printa o resultado e pode modificar o array caso necessário; Está mostrando o personagem filtrado
             <div key={char.id} className="container-char">
               <img className="icone-char" src={char.image} alt={char.name}></img>
               <p className="text-char">{char.name}</p>
+              <p className="text-char">{char.season}</p>
             </div>
           ))}
           <div className="linha-pages">

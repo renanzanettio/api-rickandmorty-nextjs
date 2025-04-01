@@ -22,6 +22,7 @@ body {
 }
 
 .grid-chars{
+  margin: 25px;
   padding: 25px;
   width: 80vw;
   background-color: #fff;
@@ -32,6 +33,7 @@ body {
   justify-content: space-between;
   row-gap: 20px;
   flex-wrap: wrap;
+  border-radius: 20px;
 }
 
 .container-char{
@@ -46,6 +48,7 @@ body {
 
 .icone-char{
   min-width: 300px;
+  border-radius: 20px;
 }
 
 .text-char{
@@ -57,6 +60,10 @@ body {
 .linha-pesquisar{
   position: relative;
   width: 100%;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
 }
 
 .pesquisar-input{
@@ -79,4 +86,14 @@ body {
   padding: 7px 12px ;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.container-ricks{
+  border-radius: 30px;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
 }
